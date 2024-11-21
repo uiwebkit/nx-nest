@@ -1,0 +1,27 @@
+{
+  "name": "ms-users",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ms-users/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "ms-users:build",
+        "runBuildTargetDependencies": false,
+        "inspect": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ms-users:build:development"
+        },
+        "production": {
+          "buildTarget": "ms-users:build:production"
+        }
+      }
+    }
+  }
+}
