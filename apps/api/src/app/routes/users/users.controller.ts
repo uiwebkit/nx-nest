@@ -1,7 +1,7 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
-import { User } from '@nx-nest/users';
+import { User, UserList } from '@nx-nest/users';
 
 import { UsersService } from './users.service';
 
@@ -11,8 +11,13 @@ export class UsersController {
   constructor(private readonly appService: UsersService) {
   }
 
+  @Get()
+  getUserList(): Observable<UserList> {
+    return this.appService.getUserList();
+  }
+
   @Get('/:id')
-  getUser(@Param('id', ParseIntPipe) id: number): Observable<User> {
-    return this.appService.getUser(id);
+  getUserById(@Param('id', ParseIntPipe) id: number): Observable<User> {
+    return this.appService.getUserById(id);
   }
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "reset": "npx nx reset",
     "serve:api": "npx nx serve api --verbose",
-    "serve:ms-users": "npx nx serve ms-users"
+    "serve:ms-users": "npx nx serve ms-users --verbose"
   },
   "private": true,
   "dependencies": {
@@ -33,7 +33,7 @@
     "@nx/eslint-plugin": "20.1.2",
     "@nx/jest": "20.1.2",
     "@nx/js": "20.1.2",
-    "@nx/nest": "20.1.2",
+    "@nx/nest": "^20.1.2",
     "@nx/node": "20.1.2",
     "@nx/web": "20.1.2",
     "@nx/webpack": "20.1.2",
