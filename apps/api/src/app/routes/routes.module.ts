@@ -5,8 +5,13 @@ import { UsersModule } from './users/users.module';
 
 const apiRoutes: Routes = [
   {
-    path: 'users',
-    module: UsersModule
+    path: 'api',
+    children: [
+      {
+        path: 'users',
+        module: UsersModule
+      }
+    ]
   }
 ];
 

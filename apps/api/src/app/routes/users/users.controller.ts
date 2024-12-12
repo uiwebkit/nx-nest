@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Header, Param, ParseIntPipe } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import { User, UserList } from '@nx-nest/users';
@@ -17,6 +17,7 @@ export class UsersController {
   }
 
   @Get('/:id')
+  @Header('Cache-Control', 'max-age=3600')
   getUserById(@Param('id', ParseIntPipe) id: number): Observable<User> {
     return this.appService.getUserById(id);
   }
